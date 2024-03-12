@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        //board
+        let tileSize = 30;
+        let rows = 15;
+        let columns = 15;
+
+        let board;
+        let boardWidth = tileSize * columns; // 30 * 15
+        let boardHeight = tileSize * rows; // 30 * 15
+        let context;
+
+        window.onload = function () {
+            board = document.getElementById("myCanvas");
+            board.width = boardWidth;
+            board.height = boardHeight;
+            context = board.getContext("2d")
+        }; 
+        //used for drawing on the board
+        </script>
 </head>
+
 <body>
     <h1>My Game Projet</h1>
-    <canvas id="myCanvas" ></canvas>
+    <canvas id="myCanvas"></canvas>
+
 </body>
+
 </html>
