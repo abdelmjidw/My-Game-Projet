@@ -17,14 +17,43 @@
         let boardHeight = tileSize * rows; // 30 * 15
         let context;
 
+        //ship
+        let shipWidth = tileSize * 2;
+        let shipHeight = tileSize;
+        let shipX = tileSize * columns / 2 - tileSize;
+        let shipY = tileSize * rows - tileSize * 2;
+
+        let ship = {
+            x: shipX,
+            y: shipY,
+            width: shipWidth,
+            height: shipHeight
+        }
+
+        let shipImg;
+        let shipVelocityX = tileSize; //ship moving speed
+
         window.onload = function () {
             board = document.getElementById("myCanvas");
             board.width = boardWidth;
             board.height = boardHeight;
-            context = board.getContext("2d")
-        }; 
-        //used for drawing on the board
-        </script>
+            context = board.getContext("2d") //used for drawing on the board
+            //load images
+            shipImg = new Image();
+            shipImg.src = "./ship.png";
+            shipImg.onload = function () {
+                context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
+            }
+
+        };
+        function update() {
+            requestAnimationFrame(update);
+
+            if (gameOver) {
+                return;
+            }
+        }
+    </script>
 </head>
 
 <body>
