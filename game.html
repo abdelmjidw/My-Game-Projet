@@ -187,9 +187,39 @@
             }
             alienCount = alienArray.length;
         }
+//         function showEndGameScreen() {
+//   // إخفاء Canvas اللعبة الرئيسية
+//   document.getElementById("myCanvas").style.display = "none";
+
+//   // إظهار Canvas شاشة انتهاء اللعبة
+//   document.getElementById("endGameCanvas").style.display = "block";
+
+//   // رسم محتوى شاشة انتهاء اللعبة (نص ، صور ، أزرار)
+//   const endGameContext = document.getElementById("endGameCanvas").getContext("2d");
+//   endGameContext.fillStyle = "black";
+//   endGameContext.fillRect(0, 0, endGameCanvas.width, endGameCanvas.height);
+//   endGameContext.fillStyle = "white";
+//   endGameContext.font = "32px Arial";
+//   endGameContext.fillText("انتهت اللعبة!", 100, 100);
+//   endGameContext.fillText(`نقاطك: ${score}`, 100, 150);
+
+//   // إضافة زر لإعادة تشغيل اللعبة
+//   const restartButton = document.createElement("button");
+//   restartButton.textContent = "إعادة التشغيل";
+//   restartButton.addEventListener("click", () => {
+//     location.reload();
+//   });
+//   restartButton.style.position = "absolute";
+//   restartButton.style.left = "50%";
+//   restartButton.style.top = "50%";
+//   restartButton.style.transform = "translate(-50%, -50%)";
+//   document.body.appendChild(restartButton);
+// }
+
 
         function shoot(e) {
             if (gameOver) {
+                // showEndGameScreen();
                 return;
             }
 
@@ -205,6 +235,7 @@
                 bulletArray.push(bullet);
             }
         }
+        
 
         function detectCollision(a, b) {
             return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
@@ -220,6 +251,9 @@
 <body>
     <h1>My Game Projet</h1>
     <canvas id="myCanvas"></canvas>
+
+    <!-- <canvas id="endGameCanvas"></canvas> -->
+
 
 </body>
 
