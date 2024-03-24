@@ -139,8 +139,8 @@
             if (alienCount == 0) {
                 //increase the number of aliens in columns and rows by 1
                 score += alienColumns * alienRows * 100; //bonus points :)
-                alienColumns = Math.min(alienColumns + 1, columns / 2 - 2); //cap at 16/2 -2 = 6
-                alienRows = Math.min(alienRows + 1, rows - 4);  //cap at 16-4 = 12
+                alienColumns = Math.min(alienColumns + 1, columns / 2 - 2); 
+                alienRows = Math.min(alienRows + 1, rows - 4);  
                 if (alienVelocityX > 0) {
                     alienVelocityX += 0.2; //increase the alien movement speed towards the right
                 }

@@ -1,7 +1,25 @@
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-image: url(dangerous-alien-planet-surface-with-rocky-surface_107791-17538.avif);
+    backdrop-filter: blur(4px);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+h1{
+    color: white;
+    text-shadow: none;
+    transition: all 0.5s ease;
+
+}
+h1:hover{
+    text-shadow: 0px 0px 6px red;
+    color: rgb(64, 222, 64);
 }
 #myCanvas{
     background-color: black;
+
 }
