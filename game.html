@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        //board
+        //سبورة
         let tileSize = 30;
         let rows = 15;
         let columns = 15;
@@ -17,7 +17,7 @@
         let boardHeight = tileSize * rows; // 30 * 15
         let context;
 
-        //ship
+        //سفينة
         let shipWidth = tileSize * 2;
         let shipHeight = tileSize;
         let shipX = tileSize * columns / 2 - tileSize;
@@ -31,9 +31,9 @@
         }
 
         let shipImg;
-        let shipVelocityX = tileSize; //ship moving speed
+        let shipVelocityX = tileSize; //سرعة تحرك السفينة
 
-        //aliens
+        //الكائنات الفضائية
         let alienArray = [];
         let alienWidth = tileSize * 2;
         let alienHeight = tileSize;
@@ -44,9 +44,9 @@
         let alienRows = 2;
         let alienColumns = 3;
         let alienCount = 0; //number of aliens to defeat
-        let alienVelocityX = 1; //alien moving speed
+        let alienVelocityX = 1; //سرعة تحرك الكائنات الفضائية
 
-        //bullets
+        //الرصاص
         let bulletArray = [];
         let bulletVelocityY = -10; //bullet moving speed
 
@@ -59,7 +59,7 @@
             board = document.getElementById("myCanvas");
             board.width = boardWidth;
             board.height = boardHeight;
-            context = board.getContext("2d") //used for drawing on the board
+            context = board.getContext("2d") //تستخدم للرسم على السبورة
             //load images
             shipImg = new Image();
             shipImg.src = "./ship.png";
@@ -98,7 +98,7 @@
                         alienVelocityX *= -1;
                         alien.x += alienVelocityX * 2;
 
-                        //move all aliens up by one row
+                        //حرك جميع الكائنات الفضائية للأعلى بمقدار صف واحد
                         for (let j = 0; j < alienArray.length; j++) {
                             alienArray[j].y += alienHeight;
                         }
@@ -137,10 +137,10 @@
 
             //next level
             if (alienCount == 0) {
-                //increase the number of aliens in columns and rows by 1
+                //زيادة عدد الكائنات الفضائية في الأعمدة والصفوف بمقدار 1
                 score += alienColumns * alienRows * 100; //bonus points :)
-                alienColumns = Math.min(alienColumns + 1, columns / 2 - 2); 
-                alienRows = Math.min(alienRows + 1, rows - 4);  
+                alienColumns = Math.min(alienColumns + 1, columns / 2 - 2);
+                alienRows = Math.min(alienRows + 1, rows - 4);
                 if (alienVelocityX > 0) {
                     alienVelocityX += 0.2; //increase the alien movement speed towards the right
                 }
@@ -187,34 +187,34 @@
             }
             alienCount = alienArray.length;
         }
-//         function showEndGameScreen() {
-//   // إخفاء Canvas اللعبة الرئيسية
-//   document.getElementById("myCanvas").style.display = "none";
+        // function showEndGameScreen() {
+        //     // إخفاء Canvas اللعبة الرئيسية
+        //     document.getElementById("myCanvas").style.display = "none";
 
-//   // إظهار Canvas شاشة انتهاء اللعبة
-//   document.getElementById("endGameCanvas").style.display = "block";
+        //     // إظهار Canvas شاشة انتهاء اللعبة
+        //     document.getElementById("endGameCanvas").style.display = "inline-block";
 
-//   // رسم محتوى شاشة انتهاء اللعبة (نص ، صور ، أزرار)
-//   const endGameContext = document.getElementById("endGameCanvas").getContext("2d");
-//   endGameContext.fillStyle = "black";
-//   endGameContext.fillRect(0, 0, endGameCanvas.width, endGameCanvas.height);
-//   endGameContext.fillStyle = "white";
-//   endGameContext.font = "32px Arial";
-//   endGameContext.fillText("انتهت اللعبة!", 100, 100);
-//   endGameContext.fillText(`نقاطك: ${score}`, 100, 150);
+        //     // رسم محتوى شاشة انتهاء اللعبة (نص ، صور ، أزرار)
+        //     const endGameContext = document.getElementById("endGameCanvas").getContext("2d");
+        //     endGameContext.fillStyle = "black";
+        //     endGameContext.fillRect(0, 0, endGameCanvas.width, endGameCanvas.height);
+        //     endGameContext.fillStyle = "white";
+        //     endGameContext.font = "32px Arial";
+        //     endGameContext.fillText("انتهت اللعبة!", 100, 100);
+        //     endGameContext.fillText(`نقاطك: ${score}`, 100, 150);
 
-//   // إضافة زر لإعادة تشغيل اللعبة
-//   const restartButton = document.createElement("button");
-//   restartButton.textContent = "إعادة التشغيل";
-//   restartButton.addEventListener("click", () => {
-//     location.reload();
-//   });
-//   restartButton.style.position = "absolute";
-//   restartButton.style.left = "50%";
-//   restartButton.style.top = "50%";
-//   restartButton.style.transform = "translate(-50%, -50%)";
-//   document.body.appendChild(restartButton);
-// }
+        //     // إضافة زر لإعادة تشغيل اللعبة
+        //     const restartButton = document.createElement("button");
+        //     restartButton.textContent = "إعادة التشغيل";
+        //     restartButton.addEventListener("click", () => {
+        //         location.reload();
+        //     });
+        //     restartButton.style.position = "absolute";
+        //     restartButton.style.left = "50%";
+        //     restartButton.style.top = "50%";
+        //     restartButton.style.transform = "translate(-50%, -50%)";
+        //     document.body.appendChild(restartButton);
+        // }
 
 
         function shoot(e) {
@@ -235,7 +235,7 @@
                 bulletArray.push(bullet);
             }
         }
-        
+
 
         function detectCollision(a, b) {
             return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
@@ -245,13 +245,17 @@
         }
 
 
+
     </script>
 </head>
 
 <body>
-    <h1>My Game Projet</h1>
-    <canvas id="myCanvas"></canvas>
+    <div>
+        <h3>MjidOux</h3>
+        <h1>My Game Projet</h1>
+    </div>
 
+    <canvas id="myCanvas"></canvas>
     <!-- <canvas id="endGameCanvas"></canvas> -->
 
 
